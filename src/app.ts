@@ -80,6 +80,13 @@ export function constructKoaApplication({
         onerror(app);
 
         app.use(async function (ctx: Koa.Context, next: KoaNextFunction) {
+            if (ctx.request.header['content-type'] === 'application-json') {
+                ctx.request.header['content-type'] = 'application/json';
+            }
+            await next();
+        });
+
+        app.use(async function (ctx: Koa.Context, next: KoaNextFunction) {
             if (
                 ctx.path.endsWith('/healthcheck') ||
                 !ctx.path.startsWith('/api-zscanner') ||

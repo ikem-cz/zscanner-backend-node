@@ -22,12 +22,28 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/DocumentType'
-              example: 
+              example:
                 [
-                  { "mode": "doc", "display": "Rodný list", type: "birthcertificate" },
-                  { "mode": "doc", "display": "Občanský průkaz", type: "nationalid" },
-                  { "mode": "exam", "display": "Výsledky analýzy krve", type: "blood-results" },
-                  { "mode": "exam", "display": "Výsledky RTG vyšetření", type: "rtg-results" }
+                  {
+                    'mode': 'doc',
+                    'display': 'Rodný list',
+                    type: 'birthcertificate',
+                  },
+                  {
+                    'mode': 'doc',
+                    'display': 'Občanský průkaz',
+                    type: 'nationalid',
+                  },
+                  {
+                    'mode': 'exam',
+                    'display': 'Výsledky analýzy krve',
+                    type: 'blood-results',
+                  },
+                  {
+                    'mode': 'exam',
+                    'display': 'Výsledky RTG vyšetření',
+                    type: 'rtg-results',
+                  },
                 ]
 
   /v3/documents/summary:
@@ -41,37 +57,39 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/DocumentSummary"
+              $ref: '#/components/schemas/DocumentSummary'
             examples:
               enumeratedDocumentType:
-                description: "Typ dokumentu z číselníku"
+                description: 'Typ dokumentu z číselníku'
                 value:
                   {
-                    "correlation": "30ca99cc-af1b-4c41-bb83-d1a40a18e354",
-                    "folderInternalId": "788392",
-                    "documentMode": "doc",
-                    "documentType": "birthcertificate",
-                    "pages": 1,
-                    "datetime": "2000-01-02T12:34:12Z"
+                    'correlation': '30ca99cc-af1b-4c41-bb83-d1a40a18e354',
+                    'folderInternalId': '788392',
+                    'documentMode': 'doc',
+                    'documentType': 'birthcertificate',
+                    'pages': 1,
+                    'datetime': '2000-01-02T12:34:12Z',
+                    'name': 'name of document',
+                    'notes': 'some notes',
                   }
               genericPhoto:
-                description: "Obecná fotografie"
+                description: 'Obecná fotografie'
                 value:
                   {
-                    "correlation": "39d4294a-0066-453d-9a97-53252574ec83",
-                    "folderInternalId": "788392",
-                    "documentMode": "foto",
-                    "documentType": "",
-                    "pages": 1,
-                    "datetime": "2000-01-02T12:34:12Z"
+                    'correlation': '39d4294a-0066-453d-9a97-53252574ec83',
+                    'folderInternalId': '788392',
+                    'documentMode': 'foto',
+                    'documentType': '',
+                    'pages': 1,
+                    'datetime': '2000-01-02T12:34:12Z',
                   }
-                  
+
       responses:
         200:
           description: Summary posted successfully
         400:
           description: Error in request
-    
+
   /v3/documents/page:
     post:
       summary: Post an individual page
@@ -104,7 +122,7 @@ paths:
           description: Page posted successfully
         400:
           description: Error in request
-                
+
   /v3/folders/search:
     get:
       summary: Search for a folder via free text
@@ -127,12 +145,22 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/FoundDocumentFolder'
-              example: 
+              example:
                 [
-                  { "externalId": "925221/9449", "internalId": "124587112", "name": "Fiona Shreková", "type": "suggestedResult" },
-                  { "externalId": "011116/0632", "internalId": "124587113", "name": "Šípková Růženka", "type": "searchResult" }
+                  {
+                    'externalId': '925221/9449',
+                    'internalId': '124587112',
+                    'name': 'Fiona Shreková',
+                    'type': 'suggestedResult',
+                  },
+                  {
+                    'externalId': '011116/0632',
+                    'internalId': '124587113',
+                    'name': 'Šípková Růženka',
+                    'type': 'searchResult',
+                  },
                 ]
-            
+
   /v3/folders/decode:
     get:
       summary: Get a folder by internalId
@@ -153,7 +181,11 @@ paths:
               schema:
                 $ref: '#/components/schemas/DocumentFolder'
               example:
-                { "externalId": "925221/9449", "internalId": "124587112", "name": "Fiona Shreková" }
+                {
+                  'externalId': '925221/9449',
+                  'internalId': '124587112',
+                  'name': 'Fiona Shreková',
+                }
 
   /v3/bodyparts/views:
     get:
@@ -170,37 +202,37 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/BodyPartsView'
-              example: 
+              example:
                 [
                   {
-                    "id": "1",
-                    "bodyParts":
+                    'id': '1',
+                    'bodyParts':
                       [
                         {
-                          "id": "leftEye",
-                          "name": "Left eye",
-                          "coordinates": [0.2, 0.2]
+                          'id': 'leftEye',
+                          'name': 'Left eye',
+                          'coordinates': [0.2, 0.2],
                         },
                         {
-                          "id": "rightEye",
-                          "name": "Right eye",
-                          "coordinates": [0.8, 0.2]
-                        }
-                      ]
+                          'id': 'rightEye',
+                          'name': 'Right eye',
+                          'coordinates': [0.8, 0.2],
+                        },
+                      ],
                   },
                   {
-                    "id": "2",
-                    "bodyParts":
+                    'id': '2',
+                    'bodyParts':
                       [
                         {
-                          "id": "finger",
-                          "name": "Finger",
-                          "coordinates": [0.1, 0.1]
-                        }
-                      ]
+                          'id': 'finger',
+                          'name': 'Finger',
+                          'coordinates': [0.1, 0.1],
+                        },
+                      ],
                   },
                 ]
-  
+
   /v3/bodyparts/views/{viewId}/image:
     get:
       summary: Get image for view
@@ -243,18 +275,18 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/FolderDefect'
-              example: 
+              example:
                 [
                   {
-                    "id": "defect1",
-                    "name": "Name of defect 1",
-                    "bodyPartId": "leftEye"
+                    'id': 'defect1',
+                    'name': 'Name of defect 1',
+                    'bodyPartId': 'leftEye',
                   },
                   {
-                    "id": "defect2",
-                    "name": "Name of defect 2",
-                    "bodyPartId": "finger"
-                  }
+                    'id': 'defect2',
+                    'name': 'Name of defect 2',
+                    'bodyPartId': 'finger',
+                  },
                 ]
 components:
   schemas:
@@ -264,13 +296,13 @@ components:
         mode:
           type: string
           enum:
-          - doc
-          - exam
+            - doc
+            - exam
         display:
           type: string
         type:
           type: string
-    
+
     DocumentSummary:
       type: object
       properties:
@@ -291,7 +323,17 @@ components:
         datetime:
           type: string
           format: date-time
-    
+        name:
+          type: string
+        notes:
+          type: string
+      required:
+        - correlation
+        - folderInternalId
+        - documentMode
+        - documentType
+        - pages
+        - datetime
 
     DocumentFolder:
       type: object
