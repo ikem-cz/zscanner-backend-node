@@ -54,7 +54,7 @@
     "koa2-formidable": "^1.0.2",
     "minimist": "^1.2.5",
     "moment": "^2.27.0",
-    "pug": "^2.0.0-rc.1",
+    "pug": "^3.0.1",
     "request": "^2.88.2",
     "request-promise": "^4.2.6",
     "tus-node-server": "git+https://github.com/ljansky/tus-node-server.git",
